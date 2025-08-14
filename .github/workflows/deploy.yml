@@ -24,6 +24,10 @@ jobs:
       - name: Build Angular app
         run: npm run build -- --configuration production
 
+      - name: Move Angular build files
+        run: |
+          cp -r dist/insigniafy/browser/* dist/insigniafy/
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
