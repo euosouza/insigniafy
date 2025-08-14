@@ -3,6 +3,7 @@ import { Button } from '../../components/shared/button/button';
 import {FormGroup, FormControl, ReactiveFormsModule, Validators, FormBuilder, UntypedFormArray, UntypedFormControl} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { CertificadosService } from '../../services/certificados';
 
 @Component({
   selector: 'app-gerar-certificado',
@@ -10,15 +11,16 @@ import { Router } from '@angular/router';
   templateUrl: './gerar-certificado.html',
   styleUrl: './gerar-certificado.css'
 })
-export class GerarCertificado implements OnInit {
+export class GerarCertificado {
   form!: FormGroup;
 
   dataSourceAtividades: Array<string> = [];
-  constructor(private formBuilder: FormBuilder, public router: Router) {
+  constructor(
+    private formBuilder: FormBuilder,
+    public router: Router,
+    private certificadoService: CertificadosService
+  ) {
     this.buildForm();
-  }
-  ngOnInit(): void {
-    console.log("ngOnInit GerarCertificado");
   }
 
   private buildForm() {
@@ -47,7 +49,12 @@ export class GerarCertificado implements OnInit {
   }
 
   gerarCertificado() {
-    this.router.navigate(['/certificados', 1]);
+    const certificado = this.certificadoService.adicionarCertificado({
+      name: this.form.get('name')?.value,
+      atividades: this.form.get('atividades')?.value
+    });
+
+    this.router.navigate(['/certificados', certificado.id]);
   }
 
   hasError(nameControl: string): boolean | undefined {
