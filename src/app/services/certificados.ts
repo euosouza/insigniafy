@@ -20,7 +20,7 @@ export class CertificadosService {
       id: uuid4(),
       name,
       atividades,
-      dataGeracao: new Date()
+      dataGeracao: new Date().toISOString()
     }
 
     this.certificadosSubject.next([...this.certificadosSubject.value, novoCertificado]);

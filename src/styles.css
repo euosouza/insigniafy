@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&display=swap');
+
 @import "tailwindcss";
 
 @theme {
@@ -26,5 +28,6 @@
   --color-secondary-900: #583c36;
   --color-secondary-950: #2e1e1c;
 
-
+  --font-dancing: "Dancing Script", cursive;
+  --background-certificado: url('assets/background.png');
 }

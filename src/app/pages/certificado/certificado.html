@@ -1,1 +1,39 @@
-<p>certificado works!</p>
+<div class="my-16">
+  <div class="flex justify-between items-center mb-16">
+    <a routerLink="/"
+      class="text-gray-500 hover:text-gray-600 transition-colors cursor-pointer flex items-center gap-1">
+      <i class="ph ph-arrow-left"></i>
+      <span class="font-semibold">Voltar</span>
+    </a>
+
+    <app-button>
+      <i class="ph ph-download"></i>
+      Donwload
+    </app-button>
+  </div>
+
+  <div class="bg-primary-800 w-full h-[550px] rounded-2xl p-10 bg-[url('/assets/background.png')] bg-auto bg-center">
+    <div class="relative bg-white w-full h-full rounded-2xl py-6 ">
+      <img src="assets/ribon.png" alt="" class="absolute -top-6 -left-6">
+
+      <div class="text-center grid items-center justify-center h-full">
+        <div>
+          <h1 class="text-primary-950 sm:text-3xl text-lg font-bold mb-2 tracking-wider">CERTIFICADO DE CONCLUSÃO</h1>
+          <p class="text-gray-400 text-sm">Este certificado comprova que</p>
+        </div>
+
+        <p class="font-dancing text-lg sm:text-6xl text-primary-600">{{ certificado?.name }} </p>
+
+        <div class="max-w-[450px]">
+          <p class="text-gray-500 text-sm mb-3">Concluiu com sucesso as seguintes atividade:</p>
+          <p>{{ formataAtividades }}</p>
+        </div>
+
+
+        <p class="font-bold text-sm text-black">Emitido em {{ formataDataGeracao }}</p>
+
+        <img src="assets/signature.png" alt="" class="absolute bottom-6 right-10">
+      </div>
+    </div>
+  </div>
+</div>
