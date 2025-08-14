@@ -1,17 +1,17 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
+
   {
     path: '',
-    redirectTo: 'certificados',
-    pathMatch: 'full' // Redireciona para a lista de certificados por padrão
-  },
-  {
-    path: 'certificados',
     loadComponent: () => import('./pages/lista-certificados/lista-certificados').then(m => m.ListaCertificados)
   },
   {
-    path: 'gerar-certificado',
+    path: 'certificados/novo',
     loadComponent: () => import('./pages/gerar-certificado/gerar-certificado').then(m => m.GerarCertificado)
+  },
+  {
+    path: 'certificados/:id',
+    loadComponent: () => import('./pages/certificado/certificado').then(m => m.Certificado)
   }
 ];

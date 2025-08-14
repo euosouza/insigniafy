@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ItemCertificado } from '../../components/item-certificado/item-certificado';
 import { CommonModule } from '@angular/common';
 import { Button } from '../../components/shared/button/button';
+import { Router } from '@angular/router';
 
 interface DataItemCertificado {
   name: string;
@@ -29,10 +30,11 @@ export class ListaCertificados {
       dataGeracao: '2024-04-10T08:45:00Z'
     }
   ]
+  constructor(private router: Router) {}
   public get getDate(): string {
     return new Date().toISOString();
   }
-  public verCertificado() {
-    console.log('Ver certificado');
+  public verCertificado(index: number) {
+    this.router.navigate(['/certificados', index]);
   }
 }

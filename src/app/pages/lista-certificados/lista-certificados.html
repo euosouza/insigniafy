@@ -21,8 +21,8 @@
     </div>
 
     <div class="flex gap-2 flex-col" >
-      <ng-container *ngFor="let item of dataSource">
-        <app-item-certificado [name]="item.name" [dataGeracao]="item.dataGeracao" (onClick)="verCertificado()">
+      <ng-container *ngFor="let item of dataSource; let i = index">
+        <app-item-certificado [name]="item.name" [dataGeracao]="item.dataGeracao" (onClick)="verCertificado(i)">
         </app-item-certificado>
       </ng-container>
     </div>
